@@ -10,7 +10,13 @@ import {
   CatalogImportPage,
   catalogImportPlugin,
 } from '@backstage/plugin-catalog-import';
-import { ScaffolderPage, scaffolderPlugin } from '@backstage/plugin-scaffolder';
+import { ScaffolderFieldExtensions } from '@backstage/plugin-scaffolder-react';
+import {
+    QuarkusExtensionListField,
+    QuarkusQuickstartPickerField,
+    QuarkusVersionListField
+} from '@qshift/plugin-quarkus';
+import { ScaffolderPage, scaffolderPlugin} from '@backstage/plugin-scaffolder';
 import { orgPlugin } from '@backstage/plugin-org';
 import { SearchPage } from '@backstage/plugin-search';
 import {
@@ -80,7 +86,13 @@ const routes = (
         <ReportIssue />
       </TechDocsAddons>
     </Route>
-    <Route path="/create" element={<ScaffolderPage />} />
+      <Route path="/create" element={<ScaffolderPage />}>
+          <ScaffolderFieldExtensions>
+              <QuarkusQuickstartPickerField />
+              <QuarkusExtensionListField />
+              <QuarkusVersionListField />
+          </ScaffolderFieldExtensions>
+      </Route>
     <Route path="/api-docs" element={<ApiExplorerPage />} />
     <Route
       path="/catalog-import"

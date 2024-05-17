@@ -53,6 +53,9 @@ import {
 
 import { TechDocsAddons } from '@backstage/plugin-techdocs-react';
 import { ReportIssue } from '@backstage/plugin-techdocs-module-addons-contrib';
+import {
+    QuarkusConsolePage,
+} from "@qshift/plugin-quarkus-console";
 
 const techdocsContent = (
   <EntityTechdocsContent>
@@ -148,6 +151,10 @@ const serviceEntityPage = (
 
     <EntityLayout.Route path="/ci-cd" title="CI/CD">
       {cicdContent}
+    </EntityLayout.Route>
+
+    <EntityLayout.Route path="/quarkus" title="Quarkus">
+      <QuarkusConsolePage />
     </EntityLayout.Route>
 
     <EntityLayout.Route path="/api" title="API">
